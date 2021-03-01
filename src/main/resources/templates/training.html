@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Compose Training</title>
+</head>
+<body>
+    <h1>Compose your training</h1>
+    <form method="post" th:object="${training}">
+        <h3>Chest exercises</h3>
+        <div th:each="exercise : ${chestEx}">
+            <input  type ="checkbox" th:field="*{exercises}" th:value="${exercise.id}" />
+            <span th:text="${exercise.name}">Exercise</span>
+        </div>
+        <h3>Back exercises</h3>
+        <div th:each="exercise : ${backEx}">
+            <input type ="checkbox" th:field="*{exercises}" th:value="${exercise.id}" />
+            <span th:text="${exercise.name}">Exercise</span>
+        </div>
+        <h3>Legs exercises</h3>
+        <div th:each="exercise : ${legsEx}">
+            <input type ="checkbox" th:field="*{exercises}" th:value="${exercise.id}" />
+            <span th:text="${exercise.name}">Exercise</span>
+        </div>
+        <h3>Arms exercises</h3>
+        <div th:each="exercise : ${armsEx}">
+            <input type ="checkbox" th:field="*{exercises}" th:value="${exercise.id}" />
+            <span th:text="${exercise.name}">Exercise</span>
+        </div>
+        <h3>Shoulders exercises</h3>
+        <div th:each="exercise : ${shouldersEx}">
+            <input  type ="checkbox" th:field="*{exercises}" th:value="${exercise.id}" />
+            <span th:text="${exercise.name}">Exercise</span>
+        </div>
+        <br>
+        <input type="text" name="comment">
+        <button>Submit</button>
+    </form>
+</body>
+</html>
