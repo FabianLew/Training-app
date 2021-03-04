@@ -2,6 +2,7 @@ package pl.fabianlewandowski.workout.model;
 
 import ch.qos.logback.core.encoder.EchoEncoder;
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;

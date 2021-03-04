@@ -18,6 +18,8 @@ import pl.fabianlewandowski.workout.model.Exercise.MusclePart;
 import pl.fabianlewandowski.workout.repository.ExerciseRepo;
 import pl.fabianlewandowski.workout.repository.TrainingRepo;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("/training")
 @Slf4j
@@ -56,7 +58,7 @@ public class TrainingController {
     }
 
     @PostMapping
-    public String saveTraining(@ModelAttribute Training training){
+    public String saveTraining(@Valid Training training){
         trainingRepo.save(training);
         log.info(training.toString());
         return "redirect:/success";

@@ -4,4 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import pl.fabianlewandowski.workout.model.Training;
 
 public interface TrainingRepo extends JpaRepository<Training,Long> {
+    public Training findTrainingById(Long Id);
 }
