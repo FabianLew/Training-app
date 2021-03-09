@@ -40,7 +40,7 @@ public class TrainingController {
         List<Exercise> exerciseList = new ArrayList<>();
         exerciseRepo.findAll().forEach(i -> exerciseList.add(i));
 
-        // TODO : make it using chain API
+        // TODO : make it using stream API
         List<Exercise> chestEx = filterByType(exerciseList,MusclePart.CHEST);
         List<Exercise> shouldersEx = filterByType(exerciseList,MusclePart.SHOULDERS);
         List<Exercise> backEx = filterByType(exerciseList,MusclePart.BACK);
