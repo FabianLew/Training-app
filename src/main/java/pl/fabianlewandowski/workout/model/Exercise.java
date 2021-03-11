@@ -21,5 +21,4 @@ public class Exercise {
         CHEST, SHOULDERS, BACK, LEGS, ARMS
     }
 
-
 }

@@ -2,6 +2,7 @@ package pl.fabianlewandowski.workout.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import pl.fabianlewandowski.workout.model.Exercise.MusclePart;
+import pl.fabianlewandowski.workout.model.User;
 import pl.fabianlewandowski.workout.repository.ExerciseRepo;
 import pl.fabianlewandowski.workout.repository.TrainingRepo;
 
@@ -58,7 +60,8 @@ public class TrainingController {
     }
 
     @PostMapping
-    public String saveTraining(@Valid Training training){
+    public String saveTraining(@Valid Training training, @AuthenticationPrincipal User user){
+        training.setUser(user);
         trainingRepo.save(training);
         log.info(training.toString());
         return "redirect:/success";

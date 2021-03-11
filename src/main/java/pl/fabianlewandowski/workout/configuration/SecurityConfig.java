@@ -36,9 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .and().authorizeRequests().antMatchers("/h2-console/**" , "/" , "/**").permitAll()
+                .and().authorizeRequests().antMatchers("/h2-console/**" , "/").permitAll()
                 .and().authorizeRequests().antMatchers("/training").hasAuthority("USER")
-                .and().formLogin();
+                .and().formLogin()
+                .and().logout();
 
         http.csrf().disable();
         http.headers().frameOptions().disable();

@@ -22,6 +22,9 @@ public class Training {
     private Date date;
     private String comment;
 
+    @ManyToOne
+    private User user;
+
     @ManyToMany(targetEntity = Exercise.class)
     @Size(min = 1, message = "Training must contains min. one exercise")
     private List<Exercise> exercises;

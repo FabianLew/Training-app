@@ -37,6 +37,6 @@ public class RegistrationController {
     public String registerUser(RegistrationForm form){
         userRepo.save(form.toUser(passwordEncoder));
         log.info(form.toUser(passwordEncoder).toString());
-        return "redirect:/success";
+        return "redirect:/login";
     }
 }
